@@ -1,8 +1,8 @@
-import { Robot } from "../robots";
+import { Cat } from "../cats";
 
-const Card = ({ id, username, email }: Robot) => {
+const Card = ({ cat: { id, username, email } }: { cat: Cat }) => {
   return (
-    <div>
+    <div className="card">
       <img src={`https://robohash.org/${id}?size=200x200&set=set4`} alt="cat" />
       <div>
         <h2>{username}</h2>

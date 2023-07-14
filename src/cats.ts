@@ -1,11 +1,11 @@
-export interface Robot {
+export interface Cat {
   id: number;
   name?: string;
   username: string;
   email: string;
 }
 
-export const robots: Robot[] = [
+export const cats: Cat[] = [
   {
     id: 1,
     name: "Leanne Graham",

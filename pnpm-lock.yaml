@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@csstools/normalize.css': ^12.0.0
   '@types/react': ^18.2.14
   '@types/react-dom': ^18.2.6
   '@typescript-eslint/eslint-plugin': ^5.61.0
@@ -15,6 +16,7 @@ specifiers:
   vite: ^4.4.0
 
 dependencies:
+  '@csstools/normalize.css': 12.0.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -262,6 +264,10 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
     dev: true
+
+  /@csstools/normalize.css/12.0.0:
+    resolution: {integrity: sha512-M0qqxAcwCsIVfpFQSlGN5XjXWu8l5JDZN+fPt1LeW5SZexQTgnaEvgXAY+CeygRw0EeppWHi12JxESWiWrB0Sg==}
+    dev: false
 
   /@esbuild/android-arm/0.18.12:
     resolution: {integrity: sha512-LIxaNIQfkFZbTLb4+cX7dozHlAbAshhFE5PKdro0l+FnCpx1GDJaQ2WMcqm+ToXKMt8p8Uojk/MFRuGyz3V5Sw==}
