@@ -10,7 +10,7 @@ interface IState {
   searchfield: string;
 }
 
-type TProps = never;
+type TProps = unknown;
 
 class App extends Component<TProps, IState> {
   constructor(props: TProps) {

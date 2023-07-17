@@ -1,4 +1,4 @@
-import { Component, ErrorInfo } from "react";
+import { Component } from "react";
 
 interface IState {
   hasError: boolean;
@@ -16,7 +16,7 @@ class ErrorBoundary extends Component<TProps, IState> {
     };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  componentDidCatch(): void {
     this.setState({ hasError: true });
   }
 
