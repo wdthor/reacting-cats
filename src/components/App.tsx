@@ -1,5 +1,5 @@
 import { ChangeEvent, Component } from "react";
-import { Cat, cats } from "../cats";
+import { Cat } from "../cats";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 
@@ -14,9 +14,17 @@ class App extends Component<TProps, IState> {
   constructor(props: TProps) {
     super(props);
     this.state = {
-      cats: cats,
+      cats: [],
       searchfield: "",
     };
+  }
+
+  async componentDidMount() {
+    await fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response: Response) => response.json())
+      .then((users: Cat[]) => {
+        this.setState({ cats: users });
+      });
   }
 
   onSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +35,7 @@ class App extends Component<TProps, IState> {
     const filteredCats = this.state.cats.filter((cat) =>
       cat.username.toLowerCase().includes(this.state.searchfield.toLowerCase())
     );
+    if (this.state.cats.length === 0) return <h1>Loading</h1>;
     return (
       <>
         <h1>Reacting cats</h1>
