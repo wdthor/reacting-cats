@@ -3,13 +3,14 @@ import { Cat } from "./cats";
 import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import Scroll from "./components/Scroll";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 interface IState {
   cats: Cat[];
   searchfield: string;
 }
 
-type TProps = unknown;
+type TProps = never;
 
 class App extends Component<TProps, IState> {
   constructor(props: TProps) {
@@ -44,10 +45,12 @@ class App extends Component<TProps, IState> {
     return (
       <>
         <h1>Reacting cats</h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <Scroll>
-          <CardList cats={filteredCats} />
-        </Scroll>
+        <ErrorBoundary>
+          <SearchBox searchChange={this.onSearchChange} />
+          <Scroll>
+            <CardList cats={filteredCats} />
+          </Scroll>
+        </ErrorBoundary>
       </>
     );
   }
