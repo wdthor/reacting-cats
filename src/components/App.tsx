@@ -2,6 +2,7 @@ import { ChangeEvent, Component } from "react";
 import { Cat } from "../cats";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
+import Scroll from "./Scroll";
 
 interface IState {
   cats: Cat[];
@@ -40,7 +41,9 @@ class App extends Component<TProps, IState> {
       <>
         <h1>Reacting cats</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <CardList cats={filteredCats} />
+        <Scroll>
+          <CardList cats={filteredCats} />
+        </Scroll>
       </>
     );
   }
