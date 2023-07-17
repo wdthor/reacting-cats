@@ -1,8 +1,8 @@
 import { ChangeEvent, Component } from "react";
-import { Cat } from "../cats";
-import CardList from "./CardList";
-import SearchBox from "./SearchBox";
-import Scroll from "./Scroll";
+import { Cat } from "./cats";
+import CardList from "./components/CardList";
+import SearchBox from "./components/SearchBox";
+import Scroll from "./components/Scroll";
 
 interface IState {
   cats: Cat[];
@@ -33,10 +33,14 @@ class App extends Component<TProps, IState> {
   };
 
   render() {
-    const filteredCats = this.state.cats.filter((cat) =>
-      cat.username.toLowerCase().includes(this.state.searchfield.toLowerCase())
+    const { cats, searchfield } = this.state;
+
+    const filteredCats = cats.filter((cat) =>
+      cat.username.toLowerCase().includes(searchfield.toLowerCase())
     );
-    if (this.state.cats.length === 0) return <h1>Loading</h1>;
+
+    if (!cats.length) return <h1>Loading</h1>;
+
     return (
       <>
         <h1>Reacting cats</h1>
